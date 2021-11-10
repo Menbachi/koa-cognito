@@ -1,0 +1,47 @@
+{
+  "name": "koa-cognito",
+  "version": "1.0.0",
+  "description": "Koa cognito middleware for user authorization",
+  "main": "src/authorizer.ts",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "Koa",
+    "Middleware",
+    "Cognito"
+  ],
+  "author": "Rafał Figura",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.13.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.2",
+    "@types/koa": "^2.13.4",
+    "@typescript-eslint/eslint-plugin": "^5.3.1",
+    "@typescript-eslint/parser": "^5.2.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jest": "^24.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.2.5",
+    "prettier": "^2.4.1",
+    "ts-jest": "^27.0.5",
+    "typescript": "^4.4.3"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "clearMocks": true,
+    "testRegex": "(/./test/.*|\\.(test|spec))\\.(ts|tsx)$",
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ]
+  }
+}
