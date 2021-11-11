@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pems Response with keys for pems for all configuration regions 1`] = `
+Object {
+  "0": Object {
+    "kid-A": "-----BEGIN PUBLIC KEY-----
+MD0wDQYJKoZIhvcNAQEBBQADLAAwKQIiAJbI4YJbJI4YLJZI4IeN5Y+Yd+JZI4d+
+JZI4bd3sWpqZXgIDAQAB
+-----END PUBLIC KEY-----
+",
+  },
+  "1": Object {
+    "kid-C": "-----BEGIN PUBLIC KEY-----
+MD0wDQYJKoZIhvcNAQEBBQADLAAwKQIiAJbI4YJbJI4YLJZI4IeN5Y+Yd+JZI4d+
+JZI4bd3sWpqZXgIDAQAB
+-----END PUBLIC KEY-----
+",
+  },
+}
+`;
