@@ -1,6 +1,6 @@
 import { getAllPems, getPems } from './cognito';
 
-const createKey = (kid: string) => ({
+const createMockKey = (kid: string) => ({
   alg: 'RS256',
   e: 'AQAB',
   kid,
@@ -13,7 +13,7 @@ describe('Pems', () => {
   test('Response with keys for pems', async () => {
     global.fetch = jest.fn().mockResolvedValue({
       json: () => ({
-        keys: [createKey('kid-A'), createKey('kid-B'), createKey('kid-C')],
+        keys: [createMockKey('kid-A'), createMockKey('kid-B'), createMockKey('kid-C')],
       }),
     });
     const configuration = { region: 'exampleRegion', userPoolId: 'exampleUserPoolId' };
@@ -30,12 +30,12 @@ describe('Pems', () => {
       .fn()
       .mockResolvedValueOnce({
         json: () => ({
-          keys: [createKey('kid-A')],
+          keys: [createMockKey('kid-A')],
         }),
       })
       .mockResolvedValueOnce({
         json: () => ({
-          keys: [createKey('kid-C')],
+          keys: [createMockKey('kid-C')],
         }),
       });
     const configuration = [
@@ -54,4 +54,3 @@ describe('Pems', () => {
     console.log({ response });
     expect(response).toMatchSnapshot();
   });
-});

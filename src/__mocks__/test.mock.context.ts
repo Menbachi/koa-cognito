@@ -29,4 +29,9 @@ export default class MockContext {
 
     return this;
   }
+  public setHeader(cookies: unknown) {
+    this.context.headers = cookies;
+
+    return this;
+  }
 }
