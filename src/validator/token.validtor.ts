@@ -1,7 +1,7 @@
-import jwt, { JwtPayload } from 'jsonwebtoken';
+import * as jwt from 'jsonwebtoken';
 import { Pems } from '../cognito/cognito';
 
-export const getTokenValidator = (pems: Pems): ((token: string) => JwtPayload) => {
+export const getTokenValidator = (pems: Pems): ((token: string) => jwt.JwtPayload) => {
   return async (token: string) => {
     const decodedToken = jwt.decode(token, { complete: true });
     if (!decodedToken) {

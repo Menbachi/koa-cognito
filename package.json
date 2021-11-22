@@ -2,12 +2,15 @@
   "name": "koa-cognito",
   "version": "0.0.1",
   "description": "Koa cognito middleware for user authorization",
-  "main": "src/authorizer.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc",
+    "prepublish": "tsc"
   },
   "keywords": [
     "Koa",
@@ -17,16 +20,15 @@
   "author": "Rafał Figura",
   "license": "ISC",
   "dependencies": {
-    "@types/jsonwebtoken": "^8.5.5",
-    "@types/jwk-to-pem": "^2.0.1",
     "amazon-cognito-identity-js": "^5.2.3",
     "axios": "^0.24.0",
     "jsonwebtoken": "^8.5.1",
     "jwk-to-pem": "^2.0.5",
-    "koa": "^2.13.4",
-    "node-fetch": "^3.1.0"
+    "koa": "^2.13.4"
   },
   "devDependencies": {
+    "@types/jsonwebtoken": "^8.5.5",
+    "@types/jwk-to-pem": "^2.0.1",
     "@types/jest": "^27.0.2",
     "@types/koa": "^2.13.4",
     "@typescript-eslint/eslint-plugin": "^5.3.1",

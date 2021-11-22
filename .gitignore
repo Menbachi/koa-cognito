@@ -1,5 +1,6 @@
 node_modules
 .idea
 coverage
-
-x.ts
+dist
+src/x.test.ts
+tsconfig.tsbuildinfo
