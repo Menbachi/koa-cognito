@@ -1,9 +1,11 @@
 import { getAllPems, getPems } from './cognito';
+import axios from 'axios';
+const mockedAxios = jest.spyOn(axios, 'get');
 
-const createMockKey = (kid: string) => ({
+const createMockKey = (key: string) => ({
   alg: 'RS256',
   e: 'AQAB',
-  kid,
+  key,
   kty: 'RSA',
   n: 'lsjhglskjhgslkjgh43lj5h34lkjh34lkjht3example',
   use: 'sig',
@@ -11,32 +13,31 @@ const createMockKey = (kid: string) => ({
 
 describe('Pems', () => {
   test('Response with keys for pems', async () => {
-    global.fetch = jest.fn().mockResolvedValue({
-      json: () => ({
-        keys: [createMockKey('kid-A'), createMockKey('kid-B'), createMockKey('kid-C')],
-      }),
+    mockedAxios.mockResolvedValue({
+      data: {
+        keys: [createMockKey('key-A'), createMockKey('key-B'), createMockKey('key-C')],
+      },
     });
     const configuration = { region: 'exampleRegion', userPoolId: 'exampleUserPoolId' };
     const response = await getPems(configuration);
 
-    expect(global.fetch).toBeCalledWith(
+    expect(mockedAxios).toBeCalledWith(
       `https://cognito-idp.${configuration.region}.amazonaws.com/${configuration.userPoolId}/.well-known/jwks.json`
     );
     expect(response).toMatchSnapshot();
   });
 
   test('Response with keys for pems for all configuration regions', async () => {
-    global.fetch = jest
-      .fn()
+    mockedAxios
       .mockResolvedValueOnce({
-        json: () => ({
-          keys: [createMockKey('kid-A')],
-        }),
+        data: {
+          keys: [createMockKey('key-A')],
+        },
       })
       .mockResolvedValueOnce({
-        json: () => ({
-          keys: [createMockKey('kid-C')],
-        }),
+        data: {
+          keys: [createMockKey('key-C')],
+        },
       });
     const configuration = [
       { region: 'exampleRegion1', userPoolId: 'exampleUserPoolId1' },
@@ -44,14 +45,13 @@ describe('Pems', () => {
     ];
     const response = await getAllPems(configuration);
 
-    expect(global.fetch).toHaveBeenCalledTimes(2);
-    expect(global.fetch).toHaveBeenCalledWith(
+    expect(mockedAxios).toHaveBeenCalledTimes(2);
+    expect(mockedAxios).toHaveBeenCalledWith(
       `https://cognito-idp.${configuration[0].region}.amazonaws.com/${configuration[0].userPoolId}/.well-known/jwks.json`
     );
-    expect(global.fetch).toHaveBeenCalledWith(
+    expect(mockedAxios).toHaveBeenCalledWith(
       `https://cognito-idp.${configuration[1].region}.amazonaws.com/${configuration[1].userPoolId}/.well-known/jwks.json`
     );
-    console.log({ response });
     expect(response).toMatchSnapshot();
   });
 });

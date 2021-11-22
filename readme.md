@@ -42,17 +42,42 @@ const bootstrap = async () => {
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
+## Heavily tested
+Feel free to test untested code
+```typescript
+--------------------------------|---------|----------|---------|---------|-------------------
+File                            | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+--------------------------------|---------|----------|---------|---------|-------------------
+All files                       |   81.65 |    75.86 |   87.09 |   78.57 |                  
+ cognito                        |     100 |       75 |     100 |     100 |                  
+  cognito.ts                    |     100 |       75 |     100 |     100 | 22               
+ errors                         |     100 |      100 |     100 |     100 |                  
+  koa.cognito.http.exception.ts |     100 |      100 |     100 |     100 |                  
+ token                          |   92.85 |       75 |     100 |    90.9 |                  
+  get.token.from.cookie.ts      |     100 |      100 |     100 |     100 |                  
+  get.token.from.header.ts      |   88.88 |    66.66 |     100 |    87.5 | 13               
+ validator                      |   13.63 |        0 |       0 |   10.52 |                  
+  token.validtor.ts             |   13.63 |        0 |       0 |   10.52 | 5-29             
+ validator/group                |     100 |      100 |     100 |     100 |                  
+  group.ts                      |     100 |      100 |     100 |     100 |                  
+ validator/scope                |     100 |      100 |     100 |     100 |                  
+  scope.ts                      |     100 |      100 |     100 |     100 |                  
+ validator/user                 |     100 |      100 |     100 |     100 |                  
+  is.authenticated.ts           |     100 |      100 |     100 |     100 |                  
+--------------------------------|---------|----------|---------|---------|-------------------
+```
+
 
 ## Simple docs
 `AuthorizerConfig` - authorizer config type
 
 `getAuthorizer(config: AuthorizerConfig)` - gets request authorizer
 
-`hasScope` - Middleware that check if user has selected scope
+`hasScope(scope: string)` - Middleware that check if user has selected scope
 
-`hasGroup` - Middleware that check if user has selected group
+`hasGroup(group: string)` - Middleware that check if user has selected group
 
-`isAuthenticated` - Middleware that check if user is logged in 
+`isAuthenticated()` - Middleware that check if user is logged in 
 
 `getGroups(ctx: Context)` - gets group from request user
 
@@ -70,3 +95,4 @@ It was highly based on [koa-cognito-middleware](https://github.com/uhop/koa-cogn
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
+
