@@ -8,6 +8,7 @@ export const getTokenFromHeader = (key = 'token'): GetTokenFn => {
     if (!headerData) {
       return Promise.resolve(undefined);
     }
+
     if (Array.isArray(headerData)) {
       return Promise.resolve(undefined);
     }

@@ -1,5 +1,5 @@
 import { Context, Next } from 'koa';
-import KoaCognitoHttpException, { HttpCode } from './errors/koa.cognito.http.exception';
+import KoaCognitoHttpException, { HttpCode } from '../../errors/koa.cognito.http.exception';
 
 export const hasGroup = (group: string) => async (ctx: Context, next: Next) => {
   const groups = getGroups(ctx);

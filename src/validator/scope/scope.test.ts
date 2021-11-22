@@ -1,26 +1,62 @@
-import { Context, Next } from 'koa';
-import KoaCognitoHttpException, { HttpCode } from '../../errors/koa.cognito.http.exception';
+import MockContext from '../../__mocks__/test.mock.context';
+import { getScopes, hasScope } from './scope';
+import KoaCognitoHttpException from '../../errors/koa.cognito.http.exception';
 
-export const hasScope = (scope: string) => async (ctx: Context, next: Next) => {
-  const scopes = getScopes(ctx);
+describe('Gets scopes from user state', () => {
+  test('Returns empty when user is undefined', () => {
+    const ctx = new MockContext().setState({}).context;
 
-  if (!scopes.some((s) => s === scope)) {
-    throw new KoaCognitoHttpException(HttpCode.Forbidden);
-  }
+    const response = getScopes(ctx);
 
-  await next();
-};
+    expect(response).toStrictEqual([]);
+  });
+  test('Returns empty when user has no scopes', () => {
+    const ctx = new MockContext().setState({
+      user: {
+        scope: [],
+      },
+    }).context;
 
-export const getScopes = (ctx: Context) => {
-  const { user } = ctx.state;
-  if (!user) {
-    return [];
-  }
+    const response = getScopes(ctx);
 
-  const { scope } = user;
-  if (!scope || typeof scope !== 'string') {
-    return [];
-  }
+    expect(response).toStrictEqual([]);
+  });
 
-  return scope.split(' ');
-};
+  test('Return scopes when they are set', () => {
+    const ctx = new MockContext().setState({
+      user: {
+        scope: 'scope-1 scope-2',
+      },
+    }).context;
+
+    const response = getScopes(ctx);
+
+    expect(response).toStrictEqual(['scope-1', 'scope-2']);
+  });
+});
+
+describe('Check if user has scope', () => {
+  test('Throws when user has not selected scope', async () => {
+    const ctx = new MockContext().setState({}).context;
+
+    const middleware = hasScope('scope');
+    const next = jest.fn();
+
+    await expect(middleware(ctx, next)).rejects.toThrow(new KoaCognitoHttpException(403));
+    expect(next).toBeCalledTimes(0);
+  });
+
+  test('Execute next when user has selected scope', async () => {
+    const ctx = new MockContext().setState({
+      user: {
+        scope: 'scope-1 scope-2 scope-3',
+      },
+    }).context;
+
+    const middleware = hasScope('scope-1');
+    const next = jest.fn();
+
+    await expect(middleware(ctx, next)).resolves;
+    expect(next).toBeCalledTimes(1);
+  });
+});

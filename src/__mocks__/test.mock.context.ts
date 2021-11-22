@@ -24,13 +24,21 @@ export default class MockContext {
 
     return this;
   }
+
   public setCookie(cookies: unknown) {
     this.context.cookies = cookies;
 
     return this;
   }
+
   public setHeader(cookies: unknown) {
     this.context.headers = cookies;
+
+    return this;
+  }
+
+  public setState(state: unknown) {
+    this.context.state = state;
 
     return this;
   }
