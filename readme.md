@@ -43,9 +43,6 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Please make sure to update tests as appropriate.
 
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
-
 ## Simple docs
 `AuthorizerConfig` - authorizer config type
 
@@ -66,3 +63,10 @@ Please make sure to update tests as appropriate.
 `getTokenFromCookie(key: string)` - look for jwt in cookie with default key = `token`
 
 `getTokenFromHeader(key: string)` - look for jwt in headers with default key = `token`
+
+## Thanks to `Eugene Lazutkin`
+
+It was highly based on [koa-cognito-middleware](https://github.com/uhop/koa-cognito-middleware) by [Eugener Lazutkin](https://github.com/uhop). Made some changes to codebase and added tests.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)

@@ -1,6 +1,6 @@
 {
   "name": "koa-cognito",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Koa cognito middleware for user authorization",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
