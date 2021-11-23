@@ -4,7 +4,7 @@ import KoaCognitoHttpException, { HttpCode } from '../../errors/koa.cognito.http
 export const isAuthenticated = async (ctx: Context, next: Next) => {
   const user = getUser(ctx);
   if (!user) {
-    throw new KoaCognitoHttpException(HttpCode.Unauthorized);
+    throw new KoaCognitoHttpException(HttpCode.Unauthorized, 'Unauthorized');
   }
 
   await next();

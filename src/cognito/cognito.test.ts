@@ -9,6 +9,7 @@ const createMockKey = (key: string) => ({
   kty: 'RSA',
   n: 'lsjhglskjhgslkjgh43lj5h34lkjh34lkjht3example',
   use: 'sig',
+  kid: key,
 });
 
 describe('Pems', () => {

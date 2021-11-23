@@ -2,7 +2,7 @@
 
 exports[`Pems Response with keys for pems 1`] = `
 Object {
-  "kid-A": Object {
+  "key-A": Object {
     "issuer": "https://cognito-idp.exampleRegion.amazonaws.com/exampleUserPoolId",
     "key": "-----BEGIN PUBLIC KEY-----
 MD0wDQYJKoZIhvcNAQEBBQADLAAwKQIiAJbI4YJbJI4YLJZI4IeN5Y+Yd+JZI4d+
@@ -10,7 +10,7 @@ JZI4bd3sWpqZXgIDAQAB
 -----END PUBLIC KEY-----
 ",
   },
-  "kid-B": Object {
+  "key-B": Object {
     "issuer": "https://cognito-idp.exampleRegion.amazonaws.com/exampleUserPoolId",
     "key": "-----BEGIN PUBLIC KEY-----
 MD0wDQYJKoZIhvcNAQEBBQADLAAwKQIiAJbI4YJbJI4YLJZI4IeN5Y+Yd+JZI4d+
@@ -18,7 +18,7 @@ JZI4bd3sWpqZXgIDAQAB
 -----END PUBLIC KEY-----
 ",
   },
-  "kid-C": Object {
+  "key-C": Object {
     "issuer": "https://cognito-idp.exampleRegion.amazonaws.com/exampleUserPoolId",
     "key": "-----BEGIN PUBLIC KEY-----
 MD0wDQYJKoZIhvcNAQEBBQADLAAwKQIiAJbI4YJbJI4YLJZI4IeN5Y+Yd+JZI4d+
@@ -31,7 +31,7 @@ JZI4bd3sWpqZXgIDAQAB
 
 exports[`Pems Response with keys for pems for all configuration regions 1`] = `
 Object {
-  "kid-A": Object {
+  "key-A": Object {
     "issuer": "https://cognito-idp.exampleRegion1.amazonaws.com/exampleUserPoolId1",
     "key": "-----BEGIN PUBLIC KEY-----
 MD0wDQYJKoZIhvcNAQEBBQADLAAwKQIiAJbI4YJbJI4YLJZI4IeN5Y+Yd+JZI4d+
@@ -39,7 +39,7 @@ JZI4bd3sWpqZXgIDAQAB
 -----END PUBLIC KEY-----
 ",
   },
-  "kid-C": Object {
+  "key-C": Object {
     "issuer": "https://cognito-idp.exampleRegion2.amazonaws.com/exampleUserPoolId2",
     "key": "-----BEGIN PUBLIC KEY-----
 MD0wDQYJKoZIhvcNAQEBBQADLAAwKQIiAJbI4YJbJI4YLJZI4IeN5Y+Yd+JZI4d+

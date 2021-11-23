@@ -42,7 +42,7 @@ describe('Check if user has scope', () => {
     const middleware = hasScope('scope');
     const next = jest.fn();
 
-    await expect(middleware(ctx, next)).rejects.toThrow(new KoaCognitoHttpException(403));
+    await expect(middleware(ctx, next)).rejects.toThrow(new KoaCognitoHttpException(403, 'Forbidden'));
     expect(next).toBeCalledTimes(0);
   });
 

@@ -62,7 +62,7 @@ describe('Check if user has selected group', () => {
     const ctx = new MockContext().setState({}).context;
     const next = jest.fn();
 
-    await expect(middleware(ctx, next)).rejects.toThrow(new KoaCognitoHttpException(403));
+    await expect(middleware(ctx, next)).rejects.toThrow(new KoaCognitoHttpException(403, 'Forbidden'));
     expect(next).toBeCalledTimes(0);
   });
 

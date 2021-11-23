@@ -5,7 +5,7 @@ export const hasScope = (scope: string) => async (ctx: Context, next: Next) => {
   const scopes = getScopes(ctx);
 
   if (!scopes.some((s) => s === scope)) {
-    throw new KoaCognitoHttpException(HttpCode.Forbidden);
+    throw new KoaCognitoHttpException(HttpCode.Forbidden, 'Forbidden');
   }
 
   await next();

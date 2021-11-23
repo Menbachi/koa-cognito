@@ -4,7 +4,7 @@ import KoaCognitoHttpException, { HttpCode } from '../../errors/koa.cognito.http
 export const hasGroup = (group: string) => async (ctx: Context, next: Next) => {
   const groups = getGroups(ctx);
   if (!groups.some((g: string) => g === group)) {
-    throw new KoaCognitoHttpException(HttpCode.Forbidden);
+    throw new KoaCognitoHttpException(HttpCode.Forbidden, 'Forbidden');
   }
 
   await next();

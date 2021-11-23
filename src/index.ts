@@ -1,3 +1,5 @@
+export * from './errors/koa.cognito.http.exception';
+
 export * from './token/get.token.from.header';
 export * from './token/get.token.from.cookie';
 

@@ -26,7 +26,7 @@ describe('Check user authorization', () => {
     const ctx = new MockContext().setState({}).context;
     const next = jest.fn();
 
-    await expect(isAuthenticated(ctx, next)).rejects.toThrow(new KoaCognitoHttpException(401));
+    await expect(isAuthenticated(ctx, next)).rejects.toThrow(new KoaCognitoHttpException(401, 'Unauthorized'));
     expect(next).toBeCalledTimes(0);
   });
 
