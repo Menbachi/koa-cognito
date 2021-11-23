@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "koa-cognito": "0.0.1"
+    "@menbachi/koa-cognito": "0.0.4"
   }
 }

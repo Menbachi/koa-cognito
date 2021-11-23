@@ -6,7 +6,7 @@ Will search for JWT in header or cookie with default key = `token`
 
 ## Installation
 ```bash
-npm i koa-cognito
+npm i @menbachi/koa-cognito
 ```
 
 ## Usage
@@ -42,7 +42,7 @@ const bootstrap = async () => {
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
-## Heavily tested
+## Tests
 Feel free to test untested code
 ```typescript
 --------------------------------|---------|----------|---------|---------|-------------------

@@ -1,6 +1,6 @@
 {
   "name": "@menbachi/koa-cognito",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Koa cognito middleware for user authorization",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,7 +10,8 @@
   "scripts": {
     "test": "jest",
     "build": "tsc",
-    "prepublish": "tsc"
+    "prepublish": "tsc",
+    "run:publish": "npm publish --access public"
   },
   "keywords": [
     "Koa",

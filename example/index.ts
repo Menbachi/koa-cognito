@@ -10,7 +10,7 @@ import {
   isAuthenticated,
   getTokenFromCookie,
   getTokenFromHeader,
-} from 'koa-cognito';
+} from '@menbachi/koa-cognito';
 
 const config: AuthorizerConfig = {
   token: {
