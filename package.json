@@ -1,5 +1,5 @@
 {
-  "name": "koa-cognito",
+  "name": "@menbachi/koa-cognito",
   "version": "0.0.4",
   "description": "Koa cognito middleware for user authorization",
   "main": "dist/index.js",
