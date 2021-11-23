@@ -11,7 +11,7 @@
     "test": "jest",
     "build": "tsc",
     "prepublish": "tsc",
-    "run:publish": "npm publish --access public"
+    "public:publish": "npm publish --access public"
   },
   "keywords": [
     "Koa",
