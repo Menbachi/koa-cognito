@@ -53,5 +53,12 @@
       "ts",
       "js"
     ]
+  },
+  "files": [
+    "dist/**/*.*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com:Menbachi/koa-cognito.git"
   }
 }
