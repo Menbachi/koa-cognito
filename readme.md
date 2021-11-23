@@ -15,7 +15,7 @@ You can see example in [example/index.ts](https://github.com/Menbachi/koa-cognit
 Simplest validation:
 ```typescript
 import Koa from 'koa';
-import { getAuthorizer, isAuthenticated } from 'koa-cognito';
+import { getAuthorizer, isAuthenticated } from '@menbachi/koa-cognito';
 
 const bootstrap = async () => {
   const app = new Koa();
@@ -70,6 +70,8 @@ All files                       |   81.65 |    75.86 |   87.09 |   78.57 |
 
 ## Simple docs
 `AuthorizerConfig` - authorizer config type
+
+`KoaCognitoHttpException` - Exception thrown when unauthorized/forbidden
 
 `getAuthorizer(config: AuthorizerConfig)` - gets request authorizer
 
